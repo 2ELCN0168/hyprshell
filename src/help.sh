@@ -1,8 +1,14 @@
 function display_help()
 {
+        printf "${R}This script must be executed as root!${N}\n"
         printf "Usage :\n"
-        printf "  -v        Enable verbose mode\n"
-        printf "  -t        Disable TTY themes installation\n"
+        printf "  ${Y}-c${N}        Clean log files only\n"
+        printf "  ${Y}-h${N}        Display this help\n"
+        printf "  ${Y}-l${N}        Enable logging\n"
+        printf "  ${Y}-m${N}        No monitoring pack\n"
+        printf "  ${Y}-v${N}        Enable verbose mode\n"
+        printf "  ${Y}-t${N}        Disable TTY themes installation\n"
+        printf "  ${Y}-z${N}        Do not install ZSH\n"
 
-        printf "\n"
+        return 0
 }
