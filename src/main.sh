@@ -20,21 +20,21 @@ function _colors()
 }
 
 function main() {
-        source "src/help.sh"
-        source "src/detect_distro.sh"
+        source "help.sh"
+        source "detect_distro.sh"
 
         # Init colors and else
         _colors
 
         # Logs
-        logfile="out/log.txt"
+        logfile="../out/log.txt"
 
         # Options
         opt_v=0 # Verbose
         opt_t=0 # Disable TTY themes
         opt_l=0 # Make a log file
 
-        while getopts "vt" opt; do
+        while getopts "vtl" opt; do
                 case "${opt}" in
                         v) opt_v=1 ;;
                         t) opt_t=1 ;;
@@ -44,6 +44,8 @@ function main() {
         done
 
         distribution=$(detect_distro)
+
+        echo $distribution
 }
 
 main "${@}"
