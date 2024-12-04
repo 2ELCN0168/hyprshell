@@ -34,12 +34,12 @@ function main() {
         opt_t=0 # Disable TTY themes
         opt_l=0 # Make a log file
 
-        while getopts "vtl" opt; do
+        while getopts "vtlh" opt; do
                 case "${opt}" in
                         v) opt_v=1 ;;
                         t) opt_t=1 ;;
                         l) opt_l=1 ;;
-                        ?) display_help ;;
+                        h|?) display_help ;;
                 esac
         done
 

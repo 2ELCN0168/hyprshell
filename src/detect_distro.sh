@@ -21,5 +21,5 @@ function detect_distro()
         fi
 
         # Return ID
-        echo "${ID}"
+        echo "${ID}" 1> "/dev/null"
 }
