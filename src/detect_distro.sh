@@ -13,13 +13,35 @@ function detect_distro()
         source "/etc/os-release"
         
         if [[ "${opt_v}" -eq 1 ]]; then
-                printf "${INFO} Detected os : ${ID}\n"
+                printf "${INFO} Detected os : ${Y}${ID}${N}\n"
         fi
 
         if [[ "${opt_l}" -eq 1 ]]; then
                 echo "${LOG_I} Detected os : ${ID}" >> "${logfile}"
         fi
 
-        # Return ID
-        echo "${ID}" 1> "/dev/null"
+        DETECTED_DISTRO=""
+        case "${ID}" in
+                "debian"|"ubuntu"|"linuxmint"|"kali") 
+                DETECTED_DISTRO="debian" ;;
+                "arch"|"manjaro"|"endeavouros"|"garuda") 
+                DETECTED_DISTRO="arch" ;;
+                "fedora"|"rhel"|"rocky"|"almalinux") 
+                DETECTED_DISTRO="rhel" ;;
+                *) 
+                DETECTED_DISTRO=0 ;;
+        esac
+
+        if [[ "${DETECTED_DISTRO}" -eq 0 ]]; then
+                if [[ "${opt_v}" -eq 1 ]]; then
+                        printf "${ERR} This distribution is not supported.\n"
+                fi
+                if [[ "${opt_l}" -eq 1 ]]; then
+                        echo "${LOG_E} This distribution is not supported." \
+                        >> "${logfile}"
+                fi
+                exit 1
+        fi
+
+        return
 }

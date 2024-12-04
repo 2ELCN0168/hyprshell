@@ -43,9 +43,9 @@ function main() {
                 esac
         done
 
-        distribution=$(detect_distro)
-
-        echo $distribution
+        detect_distro # Will upload $ID into env
+        
+        # $DETECTED_DISTRO defined in detect_distro()
 }
 
 main "${@}"
