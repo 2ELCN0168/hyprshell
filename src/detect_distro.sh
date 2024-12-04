@@ -4,7 +4,7 @@ function detect_distro()
         if [[ ! -f "/etc/os-release" ]]; then
                 if [[ "${opt_l}" -eq 1 ]]; then
                         echo "${LOG_E} Cannot detect OS distribution. Exiting." \
-                        > "${logfile}"
+                        >> "${logfile}"
                         exit 1
                 fi 
         fi
@@ -17,7 +17,7 @@ function detect_distro()
         fi
 
         if [[ "${opt_l}" -eq 1 ]]; then
-                echo "${LOG_I} Detected os : ${ID}" > "${logfile}"
+                echo "${LOG_I} Detected os : ${ID}" >> "${logfile}"
         fi
 
         # Return ID

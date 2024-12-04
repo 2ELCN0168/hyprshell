@@ -13,10 +13,10 @@ function _colors()
         ERR="${R}[!]${N}"
         WARN="${Y}[?]${N}"
 
-        LOG_I="[INFO] [$(date +%H:%m:%s)]:"
-        LOG_S="[SUCCESS] [$(date +%H:%m:%s)]:"
-        LOG_W="[WARNING] [$(date +%H:%m:%s)]:"
-        LOG_E="[ERROR] [$(date +%H:%m:%s)]:"
+        LOG_I="[INFO] [$(date +%H:%M:%S)]:"
+        LOG_S="[SUCCESS] [$(date +%H:%M:%S)]:"
+        LOG_W="[WARNING] [$(date +%H:%M:%S)]:"
+        LOG_E="[ERROR] [$(date +%H:%M:%S)]:"
 }
 
 function main() {
@@ -27,7 +27,7 @@ function main() {
         _colors
 
         # Logs
-        logfile="../out/log.txt"
+        logfile="../out/log-$(date +%Y%m%d).log"
 
         # Options
         opt_v=0 # Verbose
