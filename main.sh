@@ -78,6 +78,7 @@ function main() {
         source "./src/zshrc.sh"
         source "./src/sudoers.sh"
         source "./src/tty_themes.sh"
+        source "./src/config_files.sh.sh"
         source "./src/set_permissions.sh"
 
         # Init colors and else
@@ -143,6 +144,9 @@ function main() {
 
         # - TTY themes management
         tty_themes
+
+        # - Config files
+        config_files
 
         # - Set correct permissions on files
         set_permissions
