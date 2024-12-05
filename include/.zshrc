@@ -20,6 +20,11 @@ setopt extendedglob
 setopt promptsubst
 setopt histignoredups
 
+# Source every shell/env configuration file in "/etc/shell_conf.d"
+for i in /etc/shell_conf.d/*,sh; do
+        [[ -r "${i}" ]] && source "${i}"
+done
+
 # PROMPT
 
 precmd() { vcs_info }
@@ -39,7 +44,8 @@ else
         PROMPT+='%F{cyan}$%f '
 fi
 
-# Source every shell/env configuration file in "/etc/shell_conf.d"
-for i in /etc/shell_conf.d/*.sh; do
-        [[ -r "${i}" ]] && source "${i}"
-done
+if [[ ! -z "${SSH_CONNECTION}" && "${TERM}" != "linux" ]]; then
+        # In a SSH connection, set this prompt
+        PROMPT='%F{grey}(ssh)%f %F{white}%n%f %F{green}%~%f %F{grey}${vcs_info_msg_0_}%f${NEWLINE}'
+        PROMPT+='%F{white}$%f%F{green}_%f '
+fi

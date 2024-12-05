@@ -49,5 +49,5 @@ fi
 
 if [[ ! -z "${SSH_CONNECTION}" && "${TERM}" != "linux" ]]; then
         # In a SSH connection, set this prompt
-        PS1='\[\e[3m\]\u\[\e[0m\] \[\e[92;2;3m\]\W\[\e[23;90m\]${PS1_CMD1}\n\[\e[0;97;1m\]\\$\[\e[0;92m\]_\[\e[0m\] '
+        PS1='\[\e[90;2;3m\](ssh)\[\e[0m\] \[\e[3m\]\u\[\e[0m\] \[\e[92;2;3m\]\W\[\e[23;90m\]${PS1_CMD1}\n\[\e[0;97;1m\]\\$\[\e[0;92m\]_\[\e[0m\] '
 fi
