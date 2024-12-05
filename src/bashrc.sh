@@ -21,4 +21,12 @@ function bashrc()
                         _message "W" "Could not copy ${P}.bashrc${N} to ${P}${i}${N}"
                 fi
         done
+
+        for i in "${dirs[@]}"; do
+                if cp "../include/.git-prompt.sh" "${i}"; then
+                        _message "S" "Copied ${P}.git-prompt.sh${N} to ${P}${i}${N}"
+                else
+                        _message "W" "Could not copy ${P}.git-prompt.sh${N} to ${P}${i}${N}"
+                fi
+        done
 }

@@ -19,14 +19,16 @@ for i in /etc/shell_conf.d/*.sh; do
         [[ -r "${i}" ]] && source "${i}"
 done
 
+source "~/.git-prompt.sh"
+
 # Prompt
 if [[ "${EUID}" -eq 0 ]]; then
         # Root account!
-        PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
-        PS1='\[\e[93m\][\@]\[\e[91m\][\[\e[1m\]\u\[\e[0m\] \[\e[97;1;2;3m\]\w\[\e[0;91m\]]\[\e[0m\] \[\e[91;2m\](\[\e[97m\]${PS1_CMD1}\[\e[91m\])\[\e[0m\] \[\e[31;2;3m\]\H\n\[\e[22;91m\]\$\[\e[0m\] '
+        PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
+        PS1='\[\e[93m\][\@]\[\e[91m\][\[\e[1m\]\u\[\e[0m\] \[\e[97;1;2;3m\]\w\[\e[0;91m\]]\[\e[0m\] \[\e[91;2m\]${PS1_CMD1}\[\e[0m\] \[\e[31;2;3m\]\H\n\[\e[22;91m\]\$\[\e[0m\] '
 elif id -nG "${USER}" | grep -qE '\b(sudo|wheel)\b'; then
         # Administrative user
-        PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
+        PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
         PS1='\[\e[96m\][\@][\[\e[92;1m\]\u\[\e[0m\] \[\e[90;3m\]\w\[\e[0;96m\]]\[\e[0m\] \[\e[92;2m\](${PS1_CMD1})\n\[\e[0;93;3m\]\$\[\e[0m\] '
 else
         # Normal user
