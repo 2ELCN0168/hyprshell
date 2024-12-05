@@ -121,8 +121,6 @@ function main() {
         # - Detect the distribution
         detect_distro # Will upload $ID into env
         
-        # $DETECTED_DISTRO defined in detect_distro()
-
         # - Install the required packages
         install_packages
 
