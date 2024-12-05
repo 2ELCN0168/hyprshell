@@ -72,6 +72,7 @@ function main() {
         source "./detect_distro.sh"
         source "./install_packages.sh"
         source "./env_vars.sh"
+        source "./bashrc.sh"
 
         # Init colors and else
         _colors
@@ -128,7 +129,7 @@ function main() {
         set_env_vars
 
         # - Bashrc management
-
+        bashrc
 
         return 0
 }
