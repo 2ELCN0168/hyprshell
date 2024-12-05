@@ -23,9 +23,9 @@ setopt histignoredups
 # PROMPT
 
 precmd() { vcs_info }
+NEWLINE=$'\n'
 if [[ "${EUID}" -eq 0 ]]; then
         # Root account!
-        NEWLINE=$'\n'
         PROMPT='%F{red}%M%f${NEWLINE}'
         PROMPT+='%F{yellow}%*%f %F{red}%B[%n]%b%f %F{white}%B%~%b%f %F{red}${vcs_info_msg_0_}%f${NEWLINE}'
         PROMPT+='%F{red}#%f '
