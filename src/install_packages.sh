@@ -53,7 +53,7 @@ function install_packages()
                 fi
         elif [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
                 # RHEL
-                if dnf install -y "${pkg_list[@]}"; then
+                if dnf install -y "${pkg_list[@]}" --skip-unavailable; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
