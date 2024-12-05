@@ -1,9 +1,11 @@
 function set_env_vars()
 {
-        mkdir "/etc/shell_conf.d/"
+        if [[ ! -d "/etc/shell_conf.d/" ]]; then
+                mkdir "/etc/shell_conf.d/" 1> "/dev/null" 2>&1
+        fi
 
-        cp "../include/env.sh" "/etc/shell_conf.d/"
-        cp "../include/aliases.sh" "/etc/shell_conf.d/"
+        cp -f "../include/env.sh" "/etc/shell_conf.d/" 1> "/dev/null" 2>&1
+        cp -f "../include/aliases.sh" "/etc/shell_conf.d/" 1> "/dev/null" 2>&1
         
         # if [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
         #         # RHEL - SELinux context
