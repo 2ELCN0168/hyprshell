@@ -67,6 +67,7 @@ function main() {
         source "./help.sh"
         source "./clean_logs.sh"
         source "./detect_distro.sh"
+        source "./install_packages.sh"
 
         # Init colors and else
         _colors
@@ -75,7 +76,7 @@ function main() {
         logfile="../out/log-$(date +%Y%m%d_%H%M%S).log"
         
         # Options
-        opt_c=0 # Make a log file
+        opt_c=0 # Clean log files
         opt_l=0 # Make a log file
         opt_m=0 # No monitoring pack
         opt_v=0 # Verbose
@@ -111,9 +112,13 @@ function main() {
 
         _message "I" "Welcome to my conf deployment!" "V"
 
+        # 1. Detect the distribution
         detect_distro # Will upload $ID into env
         
         # $DETECTED_DISTRO defined in detect_distro()
+
+        # 2. Install the required packages
+        install_packages
 
         return 0
 }
