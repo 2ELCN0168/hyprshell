@@ -17,7 +17,7 @@ function zshrc()
         done
         
         for i in "${dirs[@]}"; do
-                if cp -f "../include/.zshrc" "${i}"; then
+                if cp -f "./include/.zshrc" "${i}"; then
                         _message "S" "Copied ${P}.zshrc${N} to ${P}${i}${N}"
                 else
                         _message "W" "Could not copy ${P}.zshrc${N} to ${P}${i}${N}"

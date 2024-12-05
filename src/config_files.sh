@@ -16,13 +16,13 @@ function config_files()
         for i in "${userdirs[@]}"; do
                 mkdir -p "${a}/.config" 2> "/dev/null"
                 # ...copy it in each user home + /etc/skel and /root...
-                for a in ../include/.config/*; do
+                for a in ./include/.config/*; do
                         if [[ -d "${a}" ]]; then
                                 cp -rf "${a}" "${i}/.config"
                         fi
                 done
                 # ... and copy the rest of the files to those dirs.
-                for b in ../include/.config/*; do
+                for b in ./include/.config/*; do
                         if [[ -f "${b}" ]]; then
                                 cp -f "${b}" "${a}"
                         fi
