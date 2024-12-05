@@ -1,6 +1,6 @@
 -- SYNTAX / COLOR
 vim.cmd("syntax on")
-vim.cmd("colorscheme default")
+vim.cmd("colorscheme desert")
 vim.o.background = "dark"
 vim.wo.cursorline = true
 
@@ -13,7 +13,6 @@ vim.wo.relativenumber = true
 
 -- FOLDING
 vim.wo.foldmethod = "syntax"
-vim.wo.foldlevelstart = 99
 
 -- INDENT
 vim.o.autoindent = true

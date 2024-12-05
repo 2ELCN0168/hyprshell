@@ -4,8 +4,7 @@ set relativenumber
 
 " CODE
 syntax on
-"colorscheme retrobox
-colorscheme default
+colorscheme desert
 set background=dark
 
 " INDENT

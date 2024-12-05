@@ -21,7 +21,7 @@ function config_files()
                                 cp -rf "${a}" "${i}/.config"
                         fi
                 done
-                # ... and copy the rest of the files to those dirs.
+                # ...and copy the rest of the files to those dirs.
                 for b in ./include/.config/*; do
                         if [[ -f "${b}" ]]; then
                                 cp -f "${b}" "${a}"
