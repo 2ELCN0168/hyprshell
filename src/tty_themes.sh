@@ -10,5 +10,5 @@ function tty_themes()
         fi
 
         cp -f "../include/tty_themes.sh" "/etc/shell_conf.d/"
-        cp -f "../include/tty_themes.sh" "/etc/shell_conf.d/"
+        cp -f "../include/set_default_theme.sh" "/etc/shell_conf.d/"
 }
