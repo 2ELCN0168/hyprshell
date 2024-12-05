@@ -59,9 +59,9 @@ function zshrc()
         elif [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
                 # RHEL
                 git clone "https://github.com/zdharma-continuum/fast-syntax-highlighting" \
-                "/usr/share/zsh/zsh-fast-syntax-highlighting"
+                "/usr/share/zsh-fast-syntax-highlighting"
                 git clone "https://github.com/MichaelAquilina/zsh-you-should-use" \
-                "/usr/share/zsh/zsh-you-should-use"
+                "/usr/share/zsh-you-should-use"
                 {
                         echo -e "\n# PLUGINS #\n"
 
