@@ -9,7 +9,7 @@ function detect_distro()
         # Source the file to send the variables into environment
         source "/etc/os-release"
         
-        _message "I" "Detected os: ${Y}${ID}${N}"
+        _message "S" "Detected os: ${Y}${ID}${N}"
 
         # LEGEND: ##
         # debian = 1
