@@ -46,6 +46,6 @@ fi
 
 if [[ ! -z "${SSH_CONNECTION}" && "${TERM}" != "linux" ]]; then
         # In a SSH connection, set this prompt
-        PROMPT='%F{grey}(ssh)%f %F{white}%n%f %F{green}%~%f %F{grey}${vcs_info_msg_0_}%f${NEWLINE}'
-        PROMPT+='%F{white}$%f%F{green}_%f '
+        PROMPT=$'%{\e[3;90m%}(ssh)%{\e[0m%} %{\e[1;97m%}%n%{\e[0m%} %{\e[3;92m%}%~%{\e[0m%} %{\e[90m%}${vcs_info_msg_0_}%{\e[0m%}${NEWLINE}'
+        PROMPT+=$'%{\e[1;97m%}$%{\e[0;92m%}_%{\e[0m%} '
 fi
