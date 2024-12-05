@@ -33,9 +33,9 @@ function install_packages()
                         "bottom"
                         "bmon"
                 )
-        if 
+        fi 
 
-        _message "I" "Installing the following packages: ${G}${pkg_list[@]}${N}"
+        _message "I" "Installing the following packages: ${G}${pkg_list[*]}${N}"
 
         if [[ "${DETECTED_DISTRO}" -eq 1 ]]; then
                 # Debian
