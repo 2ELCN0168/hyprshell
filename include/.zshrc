@@ -20,12 +20,6 @@ setopt extendedglob
 setopt promptsubst
 setopt histignoredups
 
-# PLUGINS #
-
-source "/usr/share/zsh/plugins/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "/usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh"
-
 # PROMPT
 
 precmd() { vcs_info }
