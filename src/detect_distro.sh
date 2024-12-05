@@ -21,7 +21,7 @@ function detect_distro()
                 DETECTED_DISTRO=1 ;;
                 "arch"|"manjaro"|"endeavouros"|"garuda") 
                 DETECTED_DISTRO=2 ;;
-                "fedora"|"rhel"|"rocky"|"almalinux") 
+                "fedora"|"rhel"|"rocky"|"almalinux"|"ol") 
                 DETECTED_DISTRO=3 ;;
                 *) 
                 DETECTED_DISTRO=0 ;;
