@@ -39,7 +39,7 @@ function install_packages()
 
         if [[ "${DETECTED_DISTRO}" -eq 1 ]]; then
                 # Debian
-                if apt install "${pkg_list[@]}" -y; then
+                if apt-get install --ignore-missing "${pkg_list[@]}" -y; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
