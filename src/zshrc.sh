@@ -32,6 +32,8 @@ function zshrc()
                 "/usr/share/zsh-fast-syntax-highlighting"
                 git clone "https://github.com/MichaelAquilina/zsh-you-should-use" \
                 "/usr/share/zsh-you-should-use"
+                git clone "https://github.com/zsh-users/zsh-autosuggestions" \
+                "/usr/share/zsh-autosuggestions"
                 {
                         echo -e "\n# PLUGINS #\n"
 
@@ -45,6 +47,8 @@ function zshrc()
                 "/usr/share/zsh/plugins/zsh-fast-syntax-highlighting"
                 git clone "https://github.com/MichaelAquilina/zsh-you-should-use" \
                 "/usr/share/zsh/plugins/zsh-you-should-use"
+                git clone "https://github.com/zsh-users/zsh-autosuggestions" \
+                "/usr/share/zsh/zsh-autosuggestions"
                 {
                         echo -e "\n# PLUGINS #\n"
 
@@ -59,6 +63,8 @@ function zshrc()
                 "/usr/share/zsh-fast-syntax-highlighting"
                 git clone "https://github.com/MichaelAquilina/zsh-you-should-use" \
                 "/usr/share/zsh-you-should-use"
+                git clone "https://github.com/zsh-users/zsh-autosuggestions" \
+                "/usr/share/zsh-autosuggestions"
                 {
                         echo -e "\n# PLUGINS #\n"
 

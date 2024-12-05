@@ -24,9 +24,7 @@ function install_packages()
                 # Add zsh
                 pkg_list+=(
                         "zsh"
-                        "zsh-syntax-highlighting"
                         "zsh-history-substring"
-                        "zsh-autosuggestions"
                 )
         fi
 
@@ -49,21 +47,28 @@ function install_packages()
 
         if [[ "${DETECTED_DISTRO}" -eq 1 ]]; then
                 # Debian
-                if apt-get install --ignore-missing "${pkg_list[@]}" -y; then
+                if apt-get install --ignore-missing "${pkg_list[*]}" -y; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
                 fi
         elif [[ "${DETECTED_DISTRO}" -eq 2 ]]; then
                 # Archlinux
-                if pacman -S --noconfirm "${pkg_list[@]}"; then
+                if pacman -S --noconfirm "${pkg_list[*]}"; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
                 fi
         elif [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
                 # RHEL
-                if dnf install -y "${pkg_list[@]}" --skip-unavailable; then
+                local cmd=""
+                if [[ "$(dnf --version | head -1 | grep -o '^dnf5')" == "dnf5" ]]; then
+                        cmd="dnf install -y --skip-unavailable ${pkg_list[*]}"
+                else
+                        cmd="dnf install -y --skip-broken ${pkg_list[*]}"
+                fi
+
+                if ${cmd}; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
