@@ -2,9 +2,6 @@ function zshrc()
 {
         [[ "${opt_z}" -eq 1 ]] && return
 
-
-
-
         _message "I" "Copying ${P}.zshrc${N}"
 
         local dirs=(
