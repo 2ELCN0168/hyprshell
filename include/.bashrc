@@ -29,10 +29,10 @@ if [[ "${TERM}" == "linux" ]]; then
                 PS1='\[\e[93m\][\@]\[\e[91m\][\u\[\e[0m\] \[\e[97m\]\w\[\e[91m\]]${PS1_CMD1}\[\e[0m\] \[\e[31m\]\H\n\[\e[91m\]\$\[\e[0m\] '
         elif id -nG "${USER}" | grep -qE '\b(sudo|wheel)\b'; then
                 # Administrative user
-                PS1='\[\e[96m\][\@][\[\e[92;1m\]\u\[\e[0m\] \[\e[90;3m\]\w\[\e[0;96m\]]\[\e[0m\]\[\e[92;2m\]${PS1_CMD1}\n\[\e[0;93;3m\]\$\[\e[0m\] '
+                PS1='\[\e[96m\][\@][\[\e[92m\]\u\[\e[0m\] \[\e[90m\]\w\[\e[96m\]]\[\e[92m\]${PS1_CMD1}\n\[\e[93m\]\$\[\e[0m\] '
         else
                 # Normal user
-                PS1='(\[\e[96m\]\u\[\e[0m\] \[\e[97;2;3m\]\w\[\e[0m\])\[\e[92;2;3m\]${PS1_CMD1}\n\[\e[22;96m\]\$\[\e[0m\] '
+                PS1='(\[\e[96m\]\u\[\e[0m\] \[\e[90m\]\w\[\e[0m\])\[\e[92m\]${PS1_CMD1}\n\[\e[96m\]\$\[\e[0m\] '
         fi
 else
         if [[ "${EUID}" -eq 0 ]]; then
@@ -45,4 +45,9 @@ else
                 # Normal user
                 PS1='(\[\e[96m\]\u\[\e[0m\] \[\e[97;2;3m\]\w\[\e[0m\])\[\e[92;2;3m\]${PS1_CMD1}\n\[\e[22;96m\]\$\[\e[0m\] '
         fi
+fi
+
+if [[ ! -z "${SSH_CONNECTION}" && "${TERM}" != "linux" ]]; then
+        # In a SSH connection, set this prompt
+        PS1='\[\e[3m\]\u\[\e[0m\] \[\e[92;2;3m\]\W\[\e[23;90m\]${PS1_CMD1}\n\[\e[0;97;1m\]\\$\[\e[0;92m\]_\[\e[0m\] '
 fi
