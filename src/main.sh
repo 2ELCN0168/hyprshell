@@ -42,16 +42,19 @@ function _message()
         local ERR="${R}[!]${N}"
 
         local MSG_HEADER=""
+        local MSG_END=""
 
         case "${1}" in
                 I) MSG_HEADER="${INFO}" ;;
-                S) MSG_HEADER="${SUC}" ;;
+                S) MSG_HEADER="${SUC}" 
+                   MSG_END="\n" ;;
                 W) MSG_HEADER="${WARN}" ;;
-                E) MSG_HEADER="${ERR}" ;;
+                E) MSG_HEADER="${ERR}" 
+                   MSG_END="\n" ;;
         esac
 
         if [[ "${3}" == "V" ]]; then
-                printf "${MSG_HEADER} ${2}\n"
+                printf "${MSG_HEADER} ${2}\n${MSG_END}"
                 # Print only verbose
         elif [[ "${3}" == "L" ]]; then
                 # Print only log
@@ -59,7 +62,7 @@ function _message()
         else
                 # Print both
                 echo "${LOG_HEADER} ${raw_msg}" >> "${logfile}"
-                printf "${MSG_HEADER} ${2}\n"
+                printf "${MSG_HEADER} ${2}\n${MSG_END}"
         fi
 }
 
