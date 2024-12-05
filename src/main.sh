@@ -71,6 +71,7 @@ function main() {
         source "./clean_logs.sh"
         source "./detect_distro.sh"
         source "./install_packages.sh"
+        source "./env_vars.sh"
 
         # Init colors and else
         _colors
@@ -115,13 +116,19 @@ function main() {
 
         _message "I" "Welcome to my conf deployment!" "V"
 
-        # 1. Detect the distribution
+        # - Detect the distribution
         detect_distro # Will upload $ID into env
         
         # $DETECTED_DISTRO defined in detect_distro()
 
-        # 2. Install the required packages
+        # - Install the required packages
         install_packages
+
+        # - Deploy environment variables
+        set_env_vars
+
+        # - Bashrc management
+
 
         return 0
 }
