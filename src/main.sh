@@ -73,6 +73,7 @@ function main() {
         source "./install_packages.sh"
         source "./env_vars.sh"
         source "./bashrc.sh"
+        source "./zshrc.sh"
 
         # Init colors and else
         _colors
@@ -130,6 +131,9 @@ function main() {
 
         # - Bashrc management
         bashrc
+
+        # - Zshrc management + plugins
+        zshrc
 
         return 0
 }
