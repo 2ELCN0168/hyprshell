@@ -2,13 +2,23 @@ function install_packages()
 {
         pkg_list=(
                 "vim"
-                "nvim"
                 "tmux"
-                "nfs-utils"
                 "autofs"
                 "gdisk"
                 "hdparm"
         )
+
+        if [[ "${DETECTED_DISTRO}" -eq 1 ]]; then
+                # Debian
+                pkg_list+=(
+                        "nfs-common"
+                )
+        else
+                pkg_list+=(
+                        "nfs-utils"
+                        "nvim"
+                )
+        fi
 
         if [[ "${opt_z}" -ne 1 ]]; then
                 # Add zsh
