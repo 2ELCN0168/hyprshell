@@ -78,8 +78,8 @@ function main() {
         source "./src/zshrc.sh"
         source "./src/sudoers.sh"
         source "./src/tty_themes.sh"
-        source "./src/config_files.sh.sh"
-        source "./src/set_permissions.sh"
+        source "./src/config_files.sh"
+        source "./src/permissions.sh"
 
         # Init colors and else
         _colors
