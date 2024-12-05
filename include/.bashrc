@@ -19,7 +19,7 @@ for i in /etc/shell_conf.d/*.sh; do
         [[ -r "${i}" ]] && source "${i}"
 done
 
-source "~/.git-prompt.sh"
+source ~/.git-prompt.sh
 
 # Prompt
 if [[ "${EUID}" -eq 0 ]]; then
