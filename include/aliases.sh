@@ -23,39 +23,6 @@ alias grep='command grep --color=auto'
 alias egrep='command grep -E --color=auto'
 alias fgrep='command fgrep --color=auto'
 
-# THEMES
-alias _themes="__show_themes"
-
-function __show_themes() {
-
-        local themes=("/etc/tty_themes.d/"*)
-        printf "There are ${#themes[@]} themes in /etc/tty_themes.d/:\n"
-        printf "\033[93m"
-        printf "[@] Warning, themes are only available for the TTY.\n"
-        printf "\033[0m"
-        for i in "${themes[@]}"; do
-                local name=$(basename ${i})
-                printf "\033[96m"
-                printf "%s\n" "${name}"
-                printf "\033[0m"
-        done
-        printf "\n"
-}
-
-if [[ "${TERM}" == "linux" ]]; then
-
-        # These aliases are not useful outsdide a TTY
-        alias _tokyo="source /etc/tty_themes.d/tokyonight_storm.sh"
-        alias _latte="source /etc/tty_themes.d/catppuccin_latte.sh"
-        alias _dracula="source /etc/tty_themes.d/dracula.sh"
-        alias _amber="source /etc/tty_themes.d/mono_amber.sh"
-        alias _green="source /etc/tty_themes.d/mono_green.sh"
-        alias _powershell="source /etc/tty_themes.d/powershell.sh"
-        alias _red="source /etc/tty_themes.d/red_impact.sh"
-        alias _ryuuko="source /etc/tty_themes.d/ryuuko.sh"
-        alias _batman="source /etc/tty_themes.d/batman.sh"
-fi
-
 # SAFETY
 alias rm='command rm -i'
 alias cp='command cp -i'

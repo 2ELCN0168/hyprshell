@@ -74,6 +74,8 @@ function main() {
         source "./env_vars.sh"
         source "./bashrc.sh"
         source "./zshrc.sh"
+        source "./sudoers.sh"
+        source "./tty_themes.sh"
 
         # Init colors and else
         _colors
@@ -132,6 +134,12 @@ function main() {
 
         # - Zshrc management + plugins
         zshrc
+
+        # - Sudoers management
+        sudoers_file
+
+        # - TTY themes management
+        tty_themes
 
         return 0
 }
