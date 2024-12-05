@@ -1,6 +1,6 @@
 function zshrc()
 {
-        if [[ "${opt_z}" -eq 1 ]] && return
+        [[ "${opt_z}" -eq 1 ]] && return
 
         _message "I" "Copying ${P}.zshrc${N}"
 
