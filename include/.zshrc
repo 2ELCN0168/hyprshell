@@ -21,7 +21,7 @@ setopt promptsubst
 setopt histignoredups
 
 # Source every shell/env configuration file in "/etc/shell_conf.d"
-for i in /etc/shell_conf.d/*,sh; do
+for i in /etc/shell_conf.d/*.sh; do
         [[ -r "${i}" ]] && source "${i}"
 done
 
