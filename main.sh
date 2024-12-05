@@ -1,3 +1,5 @@
+#! /bin/bash
+
 function _colors()
 {
         R="\033[91m"
@@ -67,21 +69,22 @@ function _message()
 }
 
 function main() {
-        source "./help.sh"
-        source "./clean_logs.sh"
-        source "./detect_distro.sh"
-        source "./install_packages.sh"
-        source "./env_vars.sh"
-        source "./bashrc.sh"
-        source "./zshrc.sh"
-        source "./sudoers.sh"
-        source "./tty_themes.sh"
+        source "./src/help.sh"
+        source "./src/clean_logs.sh"
+        source "./src/detect_distro.sh"
+        source "./src/install_packages.sh"
+        source "./src/env_vars.sh"
+        source "./src/bashrc.sh"
+        source "./src/zshrc.sh"
+        source "./src/sudoers.sh"
+        source "./src/tty_themes.sh"
+        source "./src/set_permissions.sh"
 
         # Init colors and else
         _colors
 
         # Logs
-        logfile="../out/log-$(date +%Y%m%d_%H%M%S).log"
+        logfile="./out/log-$(date +%Y%m%d_%H%M%S).log"
         
         # Options
         opt_c=0 # Clean log files
@@ -140,6 +143,9 @@ function main() {
 
         # - TTY themes management
         tty_themes
+
+        # - Set correct permissions on files
+        set_permissions
 
         return 0
 }
