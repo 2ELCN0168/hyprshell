@@ -9,7 +9,7 @@ function bashrc()
 
         for i in /home/*; do
                 if [[ -d "${i}" ]]; then
-                        dirs+=("/home/${i}")
+                        dirs+=("${i}")
                 fi
         _message "I" "Detected ${P}${i}${N}"
         done
