@@ -95,7 +95,7 @@ function main() {
         opt_t=0 # Disable TTY themes
         opt_z=0 # No ZSH
 
-        while getopts "clmvtz" opt; do
+        while getopts "clmvtzh" opt; do
                 case "${opt}" in
                         c) opt_c=1 ;;
                         l) opt_l=1 ;;
