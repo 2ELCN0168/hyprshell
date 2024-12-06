@@ -1,11 +1,27 @@
 function set_env_vars()
 {
+        _message "I" "Creating folder ${P}/etc/shell_conf.d${N}"
         if [[ ! -d "/etc/shell_conf.d/" ]]; then
-                mkdir "/etc/shell_conf.d/" 1> "/dev/null" 2>&1
+                if mkdir "/etc/shell_conf.d/" 1> "/dev/null" 2>&1; then
+                        _message "S" "Created folder ${P}/etc/shell_conf.d${N}"
+                else
+                        _message "W" "Cannot create folder ${P}/etc/shell_conf.d${N}"
+                fi
         fi
 
-        cp -f "./include/env.sh" "/etc/shell_conf.d/" 1> "/dev/null" 2>&1
-        cp -f "./include/aliases.sh" "/etc/shell_conf.d/" 1> "/dev/null" 2>&1
+        _message "I" "Copying ${P}./include/env.sh${N} to ${P}/etc/shell_conf.d${N}"
+        if cp -f "./include/env.sh" "/etc/shell_conf.d/" 1> "/dev/null" 2>&1; then
+                _message "S" "Copied ${P}./include/env.sh${N} to ${P}/etc/shell_conf.d${N}"
+        else
+                _message "W" "Cannot copy ${P}./include/env.sh${N} to ${P}/etc/shell_conf.d${N}"
+        fi
+
+        _message "I" "Copying ${P}./include/aliases.sh${N} to ${P}/etc/shell_conf.d${N}"
+        if cp -f "./include/aliases.sh" "/etc/shell_conf.d/" 1> "/dev/null" 2>&1; then
+                _message "S" "Copied ${P}./include/aliases.sh${N} to ${P}/etc/shell_conf.d${N}"
+        else
+                _message "W" "Cannot copy ${P}./include/aliases.sh${N} to ${P}/etc/shell_conf.d${N}"
+        fi
         
         # if [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
         #         # RHEL - SELinux context
