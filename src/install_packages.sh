@@ -65,12 +65,12 @@ function install_packages()
                 # RHEL
                 local cmd=""
                 if [[ "$(dnf --version | head -1 | grep -o '^dnf5')" == "dnf5" ]]; then
-                        cmd="dnf install -y --skip-unavailable ${pkg_list[*]} 1> /dev/null 2>&1"
+                        cmd="dnf install -y --skip-unavailable ${pkg_list[*]}"
                 else
-                        cmd="dnf install -y --skip-broken ${pkg_list[*]} 1> /dev/null 2>&1"
+                        cmd="dnf install -y --skip-broken ${pkg_list[*]}"
                 fi
 
-                if ${cmd}; then
+                if ${cmd} 1> "/dev/null" 2>&1; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
