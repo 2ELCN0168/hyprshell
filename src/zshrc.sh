@@ -29,11 +29,11 @@ function zshrc()
         if [[ "${DETECTED_DISTRO}" -eq 1 ]]; then
                 # Debian
                 git clone "https://github.com/zdharma-continuum/fast-syntax-highlighting" \
-                "/usr/share/zsh-fast-syntax-highlighting"
+                "/usr/share/zsh-fast-syntax-highlighting" 1> "/dev/null" 2>&1
                 git clone "https://github.com/MichaelAquilina/zsh-you-should-use" \
-                "/usr/share/zsh-you-should-use"
+                "/usr/share/zsh-you-should-use" 1> "/dev/null" 2>&1
                 git clone "https://github.com/zsh-users/zsh-autosuggestions" \
-                "/usr/share/zsh-autosuggestions"
+                "/usr/share/zsh-autosuggestions" 1> "/dev/null" 2>&1
                 {
                         echo -e "\n# PLUGINS #\n"
 
@@ -44,11 +44,11 @@ function zshrc()
         elif [[ "${DETECTED_DISTRO}" -eq 2 ]]; then
                 # Archlinux
                 git clone "https://github.com/zdharma-continuum/fast-syntax-highlighting" \
-                "/usr/share/zsh/plugins/zsh-fast-syntax-highlighting"
+                "/usr/share/zsh/plugins/zsh-fast-syntax-highlighting" 1> "/dev/null" 2>&1
                 git clone "https://github.com/MichaelAquilina/zsh-you-should-use" \
-                "/usr/share/zsh/plugins/zsh-you-should-use"
+                "/usr/share/zsh/plugins/zsh-you-should-use" 1> "/dev/null" 2>&1
                 git clone "https://github.com/zsh-users/zsh-autosuggestions" \
-                "/usr/share/zsh/zsh-autosuggestions"
+                "/usr/share/zsh/zsh-autosuggestions" 1> "/dev/null" 2>&1
                 {
                         echo -e "\n# PLUGINS #\n"
 
@@ -60,11 +60,11 @@ function zshrc()
         elif [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
                 # RHEL
                 git clone "https://github.com/zdharma-continuum/fast-syntax-highlighting" \
-                "/usr/share/zsh-fast-syntax-highlighting"
+                "/usr/share/zsh-fast-syntax-highlighting" 1> "/dev/null" 2>&1
                 git clone "https://github.com/MichaelAquilina/zsh-you-should-use" \
-                "/usr/share/zsh-you-should-use"
+                "/usr/share/zsh-you-should-use" 1> "/dev/null" 2>&1
                 git clone "https://github.com/zsh-users/zsh-autosuggestions" \
-                "/usr/share/zsh-autosuggestions"
+                "/usr/share/zsh-autosuggestions" 1> "/dev/null" 2>&1
                 {
                         echo -e "\n# PLUGINS #\n"
 
@@ -78,5 +78,5 @@ function zshrc()
                 cat "${tempfile}" >> "${i}/.zshrc"
         done
 
-        command rm -rf "${tempfile}"
+        command rm -rf "${tempfile}" 1> "/dev/null" 2>&1
 }

@@ -47,14 +47,16 @@ function install_packages()
 
         if [[ "${DETECTED_DISTRO}" -eq 1 ]]; then
                 # Debian
-                if apt-get install --ignore-missing "${pkg_list[*]}" -y; then
+                if apt-get install --ignore-missing "${pkg_list[*]}" -y \
+                1> "/dev/null" 2>&1; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
                 fi
         elif [[ "${DETECTED_DISTRO}" -eq 2 ]]; then
                 # Archlinux
-                if pacman -S --noconfirm "${pkg_list[*]}"; then
+                if pacman -S --noconfirm "${pkg_list[*]}" \
+                1> "/dev/null" 2>&1; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
@@ -63,9 +65,9 @@ function install_packages()
                 # RHEL
                 local cmd=""
                 if [[ "$(dnf --version | head -1 | grep -o '^dnf5')" == "dnf5" ]]; then
-                        cmd="dnf install -y --skip-unavailable ${pkg_list[*]}"
+                        cmd="dnf install -y --skip-unavailable ${pkg_list[*]} 1> /dev/null 2>&1"
                 else
-                        cmd="dnf install -y --skip-broken ${pkg_list[*]}"
+                        cmd="dnf install -y --skip-broken ${pkg_list[*]} 1> /dev/null 2>&1"
                 fi
 
                 if ${cmd}; then
