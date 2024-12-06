@@ -103,7 +103,7 @@ function main() {
                         v) opt_v=1 ;;
                         t) opt_t=1 ;;
                         z) opt_z=1 ;;
-                        h|?) display_help ;;
+                        h|?) display_help && exit 0 ;;
                 esac
         done
 
