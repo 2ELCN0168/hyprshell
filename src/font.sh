@@ -39,7 +39,7 @@ function set_vconsole()
                         sed -i 's/^FONT=.*/FONT=ter-116n/' "${file}"
                 else
                         echo "FONT=ter-116n" >> "${file}"
-                if
+                fi
         else
                 echo "FONT=ter-116n" > "${file}"
         fi
