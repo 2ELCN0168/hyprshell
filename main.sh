@@ -78,6 +78,7 @@ function main() {
         source "./src/zshrc.sh"
         source "./src/sudoers.sh"
         source "./src/tty_themes.sh"
+        source "./src/font.sh"
         source "./src/config_files.sh"
         source "./src/permissions.sh"
 
@@ -89,15 +90,17 @@ function main() {
         
         # Options
         opt_c=0 # Clean log files
+        opt_f=0 # No font installation
         opt_l=0 # Make a log file
         opt_m=0 # No monitoring pack
         opt_v=0 # Verbose
         opt_t=0 # Disable TTY themes
         opt_z=0 # No ZSH
 
-        while getopts "clmvtzh" opt; do
+        while getopts "cflmvtzh" opt; do
                 case "${opt}" in
                         c) opt_c=1 ;;
+                        f) opt_f=1 ;;
                         l) opt_l=1 ;;
                         m) opt_m=1 ;;
                         v) opt_v=1 ;;
@@ -144,6 +147,9 @@ function main() {
 
         # - TTY themes management
         tty_themes
+
+        # - Font management
+        font_mgmt
 
         # - Config files
         config_files
