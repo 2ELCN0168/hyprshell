@@ -47,16 +47,14 @@ function install_packages()
 
         if [[ "${DETECTED_DISTRO}" -eq 1 ]]; then
                 # Debian
-                if apt-get install --ignore-missing "${pkg_list[*]}" -y \
-                1> "/dev/null" 2>&1; then
+                if apt-get install --ignore-missing "${pkg_list[*]}" -y; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
                 fi
         elif [[ "${DETECTED_DISTRO}" -eq 2 ]]; then
                 # Archlinux
-                if pacman -S --noconfirm "${pkg_list[*]}" \
-                1> "/dev/null" 2>&1; then
+                if pacman -S --noconfirm "${pkg_list[*]}"; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
@@ -70,7 +68,7 @@ function install_packages()
                         cmd="dnf install -y --skip-broken ${pkg_list[*]}"
                 fi
 
-                if ${cmd} 1> "/dev/null" 2>&1; then
+                if ${cmd}; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
