@@ -24,6 +24,7 @@ function font_mgmt()
                 if [[ "${ID}" == "ol" ]]; then
                         # Oracle Linux
                         wget "${font}" -P "/usr/lib/kbd/consolefonts"
+                        set_vconsole
                 else
                         dnf install -y terminus-font
                         set_vconsole
