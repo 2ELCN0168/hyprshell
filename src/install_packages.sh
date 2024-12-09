@@ -77,3 +77,24 @@ function install_packages()
 
         return 0
 }
+
+
+# Add this to debian
+# available_packages=()
+
+# # Vérifie la disponibilité des paquets
+# for pkg in "${pkg_list[@]}"; do
+# if apt-cache show "$pkg" > /dev/null 2>&1; then
+# available_packages+=("$pkg")
+# else
+# echo "Paquet indisponible : $pkg"
+# fi
+# done
+
+# # Installe les paquets disponibles
+# if [[ ${#available_packages[@]} -gt 0 ]]; then
+# echo "Installation des paquets disponibles : ${available_packages[*]}"
+# apt-get install --ignore-missing "${available_packages[@]}" -y
+# else
+# echo "Aucun paquet disponible à installer."
+# fi
