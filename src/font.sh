@@ -16,19 +16,35 @@ function font_mgmt()
                         echo "FONTFACE=\"Terminus\""
                         echo "FONTSIZE=\"8x16\""
                 } > "/etc/default/console-setup"
+                _message "S" "Installed ${C}Uni3-Terminus16.psf${N}"
+                setupcon
         elif [[ "${DETECTED_DISTRO}" -eq 2 ]]; then
                 # Archlinux
-                set_vconsole
+                if set_vconsole; then
+                        _message "S" "Installed ${C}Uni3-Terminus16.psf${N}"
+                else
+                        _message "W" "Cannot install ${C}Uni3-Terminus16.psf${N}"
+                fi
+                systemctl restart systemd-vconsole-setup.service
         elif [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
                 # RHEL
                 if [[ "${ID}" == "ol" ]]; then
                         # Oracle Linux
                         wget "${font}" -P "/usr/lib/kbd/consolefonts"
-                        set_vconsole "Uni3-Terminus16"
+                        if set_vconsole "Uni3-Terminus16"; then
+                                _message "S" "Installed ${C}Uni3-Terminus16.psf${N}"
+                        else
+                                _message "W" "Cannot install ${C}Uni3-Terminus16.psf${N}"
+                        fi
                 else
                         dnf install -y terminus-fonts-console
-                        set_vconsole "ter-116n"
+                        if set_vconsole "ter-116n"; then
+                                _message "S" "Installed ${C}Uni3-Terminus16.psf${N}"
+                        else
+                                _message "W" "Cannot install ${C}Uni3-Terminus16.psf${N}"
+                        fi
                 fi
+                systemctl restart systemd-vconsole-setup.service
         fi
 }
 
