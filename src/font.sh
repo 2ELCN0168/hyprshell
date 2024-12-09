@@ -26,7 +26,7 @@ function font_mgmt()
                         wget "${font}" -P "/usr/lib/kbd/consolefonts"
                         set_vconsole "Uni3-Terminus16"
                 else
-                        dnf install -y terminus-fonts
+                        dnf install -y terminus-fonts-console
                         set_vconsole "ter-116n"
                 fi
         fi
