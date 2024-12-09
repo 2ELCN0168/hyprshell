@@ -24,10 +24,10 @@ function font_mgmt()
                 if [[ "${ID}" == "ol" ]]; then
                         # Oracle Linux
                         wget "${font}" -P "/usr/lib/kbd/consolefonts"
-                        set_vconsole
+                        set_vconsole "Uni3-Terminus16"
                 else
                         dnf install -y terminus-font
-                        set_vconsole
+                        set_vconsole "ter-116n"
                 fi
         fi
 }
@@ -37,7 +37,7 @@ function set_vconsole()
         local file="/etc/vconsole.conf"
         if [[ -f "${file}" ]]; then
                 if grep -q "^FONT=" "${file}"; then
-                        sed -i 's/^FONT=.*/FONT=ter-116n/' "${file}"
+                        sed -i "s/^FONT=.*/FONT=${1}/" "${file}"
                 else
                         echo "FONT=ter-116n" >> "${file}"
                 fi
