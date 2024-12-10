@@ -5,7 +5,7 @@ export GREP_COLORS="mt=01;91"
 export EDITOR="vim"
 export VISUAL="vim"
 export GIT_EDITOR="vim"
-export SUDO_PROMPT=$(printf "\n\033[92;1m[?] \033[97mEnter your password \033[92m\n\033[94m[>] \033[0m")
+export SUDO_PROMPT=$'\n\033[92;1m[?] \033[0;97mEnter your password:\n\033[94m[>] \033[0m'
 
 # Init colors
 LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;31:ex=01;32:mi=00;31:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:'
