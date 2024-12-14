@@ -126,6 +126,7 @@ function reload() {
 alias untar='command tar xvf'
 alias sstcp='_ss -eant'
 alias ssudp='_ss -eanu'
+alias tree='tree -CQhu --du --sort name'
 
 # READABILITY
 alias du='_du -h'
