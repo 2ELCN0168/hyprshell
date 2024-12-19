@@ -13,6 +13,8 @@ HISTTIMEFORMAT="%d/%m/%Y %H:%M:%S "
 
 # Add history from previous sessions
 shopt -s histappend
+# Wrap lines on term resize
+shopt -s checkwinsize
 
 # Source every shell/env configuration file in "/etc/shell_conf.d"
 for i in /etc/shell_conf.d/*.sh; do
