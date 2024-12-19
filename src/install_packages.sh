@@ -54,11 +54,14 @@ function install_packages()
                 fi
         elif [[ "${DETECTED_DISTRO}" -eq 2 ]]; then
                 # Archlinux
-                if pacman -S --noconfirm "${pkg_list[*]}"; then
+                if pacman -S --noconfirm "${pkg_list[*]} pacman-contrib"; then
                         _message "S" "Installed packages"
                 else
                         _message "E" "Cannot install the packages"
                 fi
+
+                systemctl enable --now pacman-filesdb-refresh.timer \
+                1> "/dev/null" 2>&1
         elif [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
                 # RHEL
                 local cmd=""
