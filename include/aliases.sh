@@ -127,6 +127,7 @@ alias untar='command tar xvf'
 alias sstcp='_ss -eant'
 alias ssudp='_ss -eanu'
 alias tree='tree -CQhu --du --sort name'
+alias history='fc -li 1'
 
 # READABILITY
 alias du='_du -h'
