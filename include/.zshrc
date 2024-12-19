@@ -16,9 +16,16 @@ zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
 
 zmodload zsh/net/tcp
 
+setopt append_history 
+setopt share_history
 setopt extendedglob
 setopt promptsubst
 setopt histignoredups
+
+# Exit on Ctrl+D even if command line is filled
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
 
 # Source every shell/env configuration file in "/etc/shell_conf.d"
 for i in /etc/shell_conf.d/*.sh; do

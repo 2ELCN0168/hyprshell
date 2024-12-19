@@ -22,6 +22,13 @@ function set_env_vars()
         else
                 _message "W" "Cannot copy ${P}./include/aliases.sh${N} to ${P}/etc/shell_conf.d${N}"
         fi
+
+        _message "I" "Copying ${P}./include/command_not_found_handler.sh${N} to ${P}/etc/shell_conf.d${N}"
+        if cp -f "./include/command_not_found_handler.sh" "/etc/shell_conf.d/" 1> "/dev/null" 2>&1; then
+                _message "S" "Copied ${P}./include/command_not_found_handler.sh${N} to ${P}/etc/shell_conf.d${N}"
+        else
+                _message "W" "Cannot copy ${P}./include/command_not_found_handler.sh${N} to ${P}/etc/shell_conf.d${N}"
+        fi
         
         # if [[ "${DETECTED_DISTRO}" -eq 3 ]]; then
         #         # RHEL - SELinux context
